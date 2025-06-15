@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zakat Penghasilan</title>
+</head>
+<body>
+    <h1>Kalkulator Zakat Penghasilan</h1>
+    <p>Masukkan penghasilan bulanan Anda:</p>
+    <input type="number" id="penghasilan" placeholder="Contoh: 5000000">
+    <button onclick="hitungZakat()">Hitung Zakat</button>
+    <p id="hasil"></p>
+
+    <script>
+        function hitungZakat() {
+            const nisab = 6531000; // Nisab 85 gram emas
+            const penghasilan = document.getElementById('penghasilan').value;
+            const hasil = document.getElementById('hasil');
+
+            if (penghasilan >= nisab) {
+                const zakat = penghasilan * 0.025;
+                hasil.innerText = "Zakat yang harus dikeluarkan: Rp " + zakat.toLocaleString('id-ID');
+            } else {
+                hasil.innerText = "Penghasilan Anda belum mencapai nisab. Tidak wajib zakat.";
+            }
+        }
+    </script>
+</body>
+</html>
